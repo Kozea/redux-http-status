@@ -3,7 +3,19 @@ import { connect } from 'react-redux'
 
 import { setCode, setRedirect } from './actions'
 
-class Status extends React.PureComponent {
+@connect(
+  () => ({}),
+  dispatch => ({
+    updateStatus: (code, url) => {
+      if ([301, 302].includes(code)) {
+        dispatch(setRedirect(code, url))
+      } else {
+        dispatch(setCode(code))
+      }
+    },
+  })
+)
+export default class Status extends React.PureComponent {
   componentWillMount() {
     this.update()
   }
@@ -19,16 +31,3 @@ class Status extends React.PureComponent {
     return children || null
   }
 }
-
-export default connect(
-  () => ({}),
-  dispatch => ({
-    updateStatus: (code, url) => {
-      if ([301, 302].includes(code)) {
-        dispatch(setRedirect(code, url))
-      } else {
-        dispatch(setCode(code))
-      }
-    },
-  })
-)(Status)
