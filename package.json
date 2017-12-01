@@ -9,8 +9,7 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "lint": "eslint src",
-    "prepublish": "npm run build",
-    "postpublish": "git push && git push --tags"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.32",

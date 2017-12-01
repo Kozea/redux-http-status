@@ -19,8 +19,11 @@ export default class Status extends React.PureComponent {
   componentWillMount() {
     this.update()
   }
-  componentWillUpdate() {
-    this.update()
+  componentWillUpdate({ code: prevCode }) {
+    const { code } = this.props
+    if (code !== prevCode) {
+      this.update()
+    }
   }
   update() {
     const { code, url, updateStatus } = this.props
