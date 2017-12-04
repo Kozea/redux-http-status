@@ -1,6 +1,6 @@
 {
   "name": "redux-http-status",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Redux reducer and action to set http status in the store for use server side. Comes with bundled react components",
   "main": "lib/index.js",
   "repository": "https://github.com/Kozea/redux-http-status",
